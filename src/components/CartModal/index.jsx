@@ -9,9 +9,9 @@ export const CartModal = ({ productList, cartList, setCartList }) => {
 
    const cartFunction = (product) => {
       const filteredProduct = cartList.filter(prod => prod.id === product.id)
-      if(filteredProduct.length>0){
+      if (filteredProduct.length > 0) {
          return <CartItemCard key={product.id} product={product} cartList={cartList} setCartList={setCartList} />
-      } else{
+      } else {
          return null
       }
    }
@@ -25,16 +25,22 @@ export const CartModal = ({ productList, cartList, setCartList }) => {
             </button>
          </div>
          <div>
-            <ul>
-               {productList.map((product) => (
-                  cartFunction(product)
-               ))}
-            </ul>
+            {
+               cartList.length ===0 ?
+               <p>Você ainda não possui nenhum produto no carrinho</p> :
+               (
+                  <ul>
+                     {productList.map((product) => (
+                        cartFunction(product)
+                     ))}
+                  </ul>
+               )
+            }
          </div>
          <div>
             <div>
                <span>Total</span>
-               <span>{total.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</span>
+               <span>{total.toLocaleString('pt-BR', { style: "currency", currency: "BRL" })}</span>
             </div>
             <button>Remover todos</button>
          </div>

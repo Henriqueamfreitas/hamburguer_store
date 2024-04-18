@@ -23,12 +23,6 @@ export const HomePage = () => {
    useEffect(() => {
       localStorage.setItem("@HamburgueriaCart", JSON.stringify(cartList))
    }, [cartList])
-   // console.log(cartList)
-   // useEffect atualização - salva os produtos no localStorage (carregar no estado)
-   // adição, exclusão, e exclusão geral do carrinho
-   // renderizações condições e o estado para exibir ou não o carrinho
-   // filtro de busca
-   // estilizar tudo com sass de forma responsiva
 
    return (
       <>
