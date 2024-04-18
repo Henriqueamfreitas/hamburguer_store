@@ -32,7 +32,7 @@ export const HomePage = () => {
          <Header />
          <main>
             <ProductList productList={productList} cartList={cartList} setCartList={setCartList} />
-            <CartModal cartList={cartList} />
+            <CartModal productList={productList} cartList={cartList} setCartList={setCartList} />
          </main>
       </>
    );

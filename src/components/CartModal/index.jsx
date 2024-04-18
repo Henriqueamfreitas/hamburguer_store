@@ -1,10 +1,20 @@
 import { MdClose } from "react-icons/md";
 import { CartItemCard } from "./CartItemCard";
+import { ProductCard } from "../ProductList/ProductCard";
 
-export const CartModal = ({ cartList }) => {
+export const CartModal = ({ productList, cartList, setCartList }) => {
    const total = cartList.reduce((prevValue, product) => {
       return prevValue + product.price;
    }, 0);
+
+   const cartFunction = (product) => {
+      const filteredProduct = cartList.filter(prod => prod.id === product.id)
+      if(filteredProduct.length>0){
+         return <CartItemCard key={product.id} product={product} cartList={cartList} setCartList={setCartList} />
+      } else{
+         return null
+      }
+   }
 
    return (
       <div role="dialog">
@@ -16,8 +26,8 @@ export const CartModal = ({ cartList }) => {
          </div>
          <div>
             <ul>
-               {cartList.map((product) => (
-                  <CartItemCard key={product.id} product={product} />
+               {productList.map((product) => (
+                  cartFunction(product)
                ))}
             </ul>
          </div>
