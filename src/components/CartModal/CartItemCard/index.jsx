@@ -28,9 +28,9 @@ export const CartItemCard = ({ product, setCartList, cartList }) => {
             <h3>{product.name}</h3>
          </div>
          <div>
-            <button onClick={() => removeProduct(product.id)}>Remover</button>
+            <button onClick={() => removeProduct(product.id)}>-</button>
             <span>{filteredProduct.length}</span>
-            <button onClick={() => addProduct(product)}>Adicionar</button>
+            <button onClick={() => addProduct(product)}>+</button>
          </div>
       </li>
    );

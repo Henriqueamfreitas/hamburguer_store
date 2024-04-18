@@ -27,9 +27,9 @@ export const ProductCard = ({ product, setCartList, cartList }) => {
                 <span>{product.category}</span>
                 <span>{product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</span>
                 <div>
-                    <button onClick={() => removeProduct(product.id)}>Remover</button>
+                    <button onClick={() => removeProduct(product.id)}>-</button>
                     <span>{filteredProduct.length}</span>
-                    <button onClick={() => addProduct(product)}>Adicionar</button>
+                    <button onClick={() => addProduct(product)}>+</button>
                 </div>
             </div>
         </li>

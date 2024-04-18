@@ -7,6 +7,9 @@ import { api } from "../../services/api";
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([]);
+   const [filteredProduct, setFilteredProduct] = useState([])
+   const [value, setValue] = useState("");
+
    const [isOpen, setIsOpen] = useState(false)
    const cartListLS = localStorage.getItem("@HamburgueriaCart")
    const [cartList, setCartList] = useState(cartListLS ? JSON.parse(cartListLS) : []);
@@ -25,11 +28,31 @@ export const HomePage = () => {
       localStorage.setItem("@HamburgueriaCart", JSON.stringify(cartList))
    }, [cartList])
 
+
+
+
    return (
       <>
-         <Header isOpen={isOpen} setIsOpen={setIsOpen} cartList={cartList} />
+         <Header 
+            setIsOpen={setIsOpen} 
+            cartList={cartList} 
+            productList={productList} 
+            value={value} 
+            setValue={setValue} 
+            setFilteredProduct={setFilteredProduct} 
+         />
          <main>
-            <ProductList productList={productList} cartList={cartList} setCartList={setCartList} />
+            {
+               filteredProduct.length === 0 && value !== "" ?
+               <p>Não achamos nenhum produto com esse nome</p>:
+               <ProductList 
+                  productList={productList} 
+                  cartList={cartList} 
+                  setCartList={setCartList} 
+                  value={value} 
+                  filteredProduct={filteredProduct} 
+               />
+            }
             {
                isOpen ?
                <CartModal productList={productList} cartList={cartList} setCartList={setCartList} setIsOpen={setIsOpen} />:
