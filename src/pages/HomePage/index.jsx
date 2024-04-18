@@ -7,9 +7,9 @@ import { api } from "../../services/api";
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([]);
-   const [cartList, setCartList] = useState([]);
+   const cartListLS = localStorage.getItem("@HamburgueriaCart")
+   const [cartList, setCartList] = useState(cartListLS ? JSON.parse(cartListLS) : []);
 
-   // useEffect montagem - carrega os produtos da API e joga em productList
    useEffect(() => {
       const loadData = async () => {
          const response = await api.get("/products")
@@ -20,6 +20,9 @@ export const HomePage = () => {
    }, [])
 
 
+   useEffect(() => {
+      localStorage.setItem("@HamburgueriaCart", JSON.stringify(cartList))
+   }, [cartList])
    // console.log(cartList)
    // useEffect atualização - salva os produtos no localStorage (carregar no estado)
    // adição, exclusão, e exclusão geral do carrinho
