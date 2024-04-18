@@ -40,6 +40,8 @@ export const StyledSpan = styled.span`
                 return "400"
             case "600":
                 return "600"
+            case "900":
+                return "900"
         }
     }};
     line-height: ${({lineheight}) => {
@@ -58,6 +60,8 @@ export const StyledSpan = styled.span`
                 return "var(--color-grey600)"
             case "green":
                 return "var(--color-primary)"
+            case "white":
+                return "var(--color-white)"
         }
     }};
 `
