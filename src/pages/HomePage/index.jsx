@@ -7,6 +7,7 @@ import { api } from "../../services/api";
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([]);
+   const [isOpen, setIsOpen] = useState(false)
    const cartListLS = localStorage.getItem("@HamburgueriaCart")
    const [cartList, setCartList] = useState(cartListLS ? JSON.parse(cartListLS) : []);
 
@@ -26,10 +27,14 @@ export const HomePage = () => {
 
    return (
       <>
-         <Header />
+         <Header isOpen={isOpen} setIsOpen={setIsOpen} cartList={cartList} />
          <main>
             <ProductList productList={productList} cartList={cartList} setCartList={setCartList} />
-            <CartModal productList={productList} cartList={cartList} setCartList={setCartList} />
+            {
+               isOpen ?
+               <CartModal productList={productList} cartList={cartList} setCartList={setCartList} setIsOpen={setIsOpen} />:
+               null
+            }
          </main>
       </>
    );
