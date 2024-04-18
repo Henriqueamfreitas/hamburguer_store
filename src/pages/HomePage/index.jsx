@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { ProductList } from "../../components/ProductList";
 import { useEffect } from "react";
 import { api } from "../../services/api";
+import { StyledP } from "../../styles/typography";
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([]);
@@ -44,7 +45,7 @@ export const HomePage = () => {
          <main>
             {
                filteredProduct.length === 0 && value !== "" ?
-               <p>Não achamos nenhum produto com esse nome</p>:
+               <StyledP>Não achamos nenhum produto com esse nome</StyledP>:
                <ProductList 
                   productList={productList} 
                   cartList={cartList} 

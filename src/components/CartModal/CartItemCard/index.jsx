@@ -1,4 +1,4 @@
-import { MdDelete } from "react-icons/md";
+import { StyledH3, StyledSpan } from "../../../styles/typography";
 
 export const CartItemCard = ({ product, setCartList, cartList }) => {
    const addProduct = (product) => {
@@ -25,11 +25,16 @@ export const CartItemCard = ({ product, setCartList, cartList }) => {
       <li>
          <div>
             <img src={product.img} alt={product.name} />
-            <h3>{product.name}</h3>
+            <StyledH3>{product.name}</StyledH3>
+            <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="green">
+               {product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}
+            </StyledSpan>
          </div>
          <div>
             <button onClick={() => removeProduct(product.id)}>-</button>
-            <span>{filteredProduct.length}</span>
+               <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="grey600">
+                  {filteredProduct.length}
+               </StyledSpan>
             <button onClick={() => addProduct(product)}>+</button>
          </div>
       </li>

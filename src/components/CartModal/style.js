@@ -15,8 +15,9 @@ export const StyledDiv = styled.div`
         background-color: white;
         display: flex;
         flex-direction: column;
-        width: fit-content;
-        height: fit-content;
-        padding: 2rem;
+    }
+
+    .modal__header{
+        background-color: var(--color-primary);
     }
 `

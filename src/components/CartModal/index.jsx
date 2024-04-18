@@ -2,6 +2,7 @@ import { MdClose } from "react-icons/md";
 import { CartItemCard } from "./CartItemCard";
 import { StyledDiv } from "./style";
 import { useEffect, useRef } from "react";
+import { StyledH2, StyledSpan, StyledP } from "../../styles/typography";
 
 export const CartModal = ({ productList, cartList, setCartList, setIsOpen }) => {
    const modalRef = useRef(null);
@@ -43,17 +44,17 @@ export const CartModal = ({ productList, cartList, setCartList, setIsOpen }) => 
 
    return (
       <StyledDiv role="dialog">
-         <div ref={modalRef}>
-            <div>
-               <h2>Carrinho de compras</h2>
+         <div className="modal" ref={modalRef}>
+            <div className="modal__header">
+               <StyledH2>Carrinho de compras</StyledH2>
                <button onClick={() => setIsOpen(false)} aria-label="close" title="Fechar">
                   <MdClose size={21} />
                </button>
             </div>
-            <div>
+            <div  className="modal__cartProducts">
                {
                   cartList.length === 0 ?
-                     <p>Você ainda não possui nenhum produto no carrinho</p> :
+                     <StyledP>Você ainda não possui nenhum produto no carrinho</StyledP> :
                      (
                         <ul>
                            {productList.map((product) => (
@@ -63,10 +64,12 @@ export const CartModal = ({ productList, cartList, setCartList, setIsOpen }) => 
                      )
                }
             </div>
-            <div>
+            <div className="modal__summary">
                <div>
-                  <span>Total</span>
-                  <span>{total.toLocaleString('pt-BR', { style: "currency", currency: "BRL" })}</span>
+                  <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="grey600">Total</StyledSpan>
+                  <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="grey300">
+                     {total.toLocaleString('pt-BR', { style: "currency", currency: "BRL" })}
+                  </StyledSpan>
                </div>
                <button onClick={() => setCartList([])}>Remover todos</button>
             </div>
