@@ -1,4 +1,5 @@
 import { StyledH3, StyledSpan } from "../../../styles/typography";
+import { StyledCartCard } from "./style";
 
 export const CartItemCard = ({ product, setCartList, cartList }) => {
    const addProduct = (product) => {
@@ -22,21 +23,23 @@ export const CartItemCard = ({ product, setCartList, cartList }) => {
   const filteredProduct = cartList.filter(prod => prod.id === product.id)
 
    return (
-      <li>
-         <div>
+      <StyledCartCard>
+         <div className="cart__left">
             <img src={product.img} alt={product.name} />
-            <StyledH3>{product.name}</StyledH3>
-            <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="green">
-               {product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}
-            </StyledSpan>
+            <div>
+               <StyledH3>{product.name}</StyledH3>
+               <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="green">
+                  {product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}
+               </StyledSpan>
+            </div>
          </div>
-         <div>
+         <div className="cart__right">
             <button onClick={() => removeProduct(product.id)}>-</button>
                <StyledSpan fontSize=".875" fontWeight="600" lineheight="1.5" fontcolor="grey600">
                   {filteredProduct.length}
                </StyledSpan>
             <button onClick={() => addProduct(product)}>+</button>
          </div>
-      </li>
+      </StyledCartCard>
    );
 };

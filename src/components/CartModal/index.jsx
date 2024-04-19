@@ -51,7 +51,7 @@ export const CartModal = ({ productList, cartList, setCartList, setIsOpen }) => 
                   <MdClose size={21} />
                </button>
             </div>
-            <div  className="modal__cartProducts">
+            <div className="modal__cartProducts">
                {
                   cartList.length === 0 ?
                      <StyledP>Você ainda não possui nenhum produto no carrinho</StyledP> :

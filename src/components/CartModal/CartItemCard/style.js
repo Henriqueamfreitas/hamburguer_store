@@ -1,23 +1,34 @@
 import styled from "styled-components"
 
-export const StyledDiv = styled.div`
-    position: fixed;
-    left: 0;
-    top: 0;
+export const StyledCartCard = styled.li`
     display: flex;
-    justify-content: center;
+    /* width: 300px; */
+    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.25);
-
-    div{
-        background-color: white;
-        display: flex;
-        flex-direction: column;
+    img{
+        width: 55px;
+        height: 53.49px;
+        background-color: var(--color-grey100);
+        border-radius: 0.3125rem;
+        padding: .35rem;
     }
 
-    .modal__header{
-        background-color: var(--color-primary);
+    .cart__left{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: start;
+        gap: clamp(.5rem, 3vw, 1rem);
+    }
+
+    .cart__right{
+        display: flex;
+        flex-direction: row;
+        width: fit-content;
+        button{
+            background-color: transparent;
+            border: none;
+        }
     }
 `
