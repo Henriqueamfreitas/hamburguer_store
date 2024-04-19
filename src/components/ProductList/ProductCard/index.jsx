@@ -1,4 +1,5 @@
 import { StyledH3, StyledSpan } from "../../../styles/typography"
+import { StyledProductCard } from "./style"
 
 export const ProductCard = ({ product, setCartList, cartList }) => {
     const addProduct = (product) => {
@@ -22,9 +23,11 @@ export const ProductCard = ({ product, setCartList, cartList }) => {
     const filteredProduct = cartList.filter(prod => prod.id === product.id)
 
     return(
-        <li>
-            <img src={product.img} alt={product.name} />
-            <div>
+        <StyledProductCard>
+            <div className="imageContainer">
+                <img src={product.img} alt={product.name} />
+            </div>
+            <div className="prooductInfoContainer">
                 <StyledH3>{product.name}</StyledH3>
                 <StyledSpan fontSize=".75" fontWeight="400" lineheight="1" fontcolor="grey300" >
                     {product.category}
@@ -40,6 +43,6 @@ export const ProductCard = ({ product, setCartList, cartList }) => {
                     <button onClick={() => addProduct(product)}>+</button>
                 </div>
             </div>
-        </li>
+        </StyledProductCard>
     )
 }
