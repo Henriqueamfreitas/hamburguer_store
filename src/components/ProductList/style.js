@@ -7,4 +7,10 @@ export const StyledProductList = styled.ul`
     gap: 1rem;
     overflow-x: scroll;
     padding-bottom: 1rem;
+
+    @media (min-width: 741px){
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        gap: 1.9rem;
+    }
 `

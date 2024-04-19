@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const StyledProductCard = styled.li`
     border: solid 2px var(--color-grey100);
     background-color: transparent;
-    min-width: 202px;
+    min-width: clamp(0px, 70vw, 300px);
     border-radius: 0.3125rem;
     .imageContainer{
         background-color: var(--color-grey0);
