@@ -28,6 +28,8 @@ export const StyledSpan = styled.span`
     font-family: "Inter", sans-serif;
     font-size: ${({fontSize}) => {
         switch(fontSize){
+            case "1.25":
+                return "1.25rem"
             case ".75":
                 return ".75rem"
             case ".875":
@@ -62,6 +64,10 @@ export const StyledSpan = styled.span`
                 return "var(--color-primary)"
             case "white":
                 return "var(--color-white)"
+            case "white":
+                return "var(--color-white)"
+            case "pink":
+                return "var(--color-pink)"
         }
     }};
 `

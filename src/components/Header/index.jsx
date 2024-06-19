@@ -15,7 +15,10 @@ export const Header = ({ setIsOpen, cartList, productList, value, setValue, setF
 
    return (
       <StyledHeader>
-         <img src={Logo} alt="Logo Kenzie Burguer" />
+         <div>
+            <StyledSpan fontSize="1.25" fontWeight="900" fontcolor="grey600" >Burger</StyledSpan>
+            <StyledSpan fontSize="1.25" fontWeight="900" fontcolor="pink" > Store</StyledSpan>
+         </div>
          <button onClick={() => setIsOpen(true)}>
             <MdShoppingCart size={21} />
             <StyledSpan fontSize=".875" fontWeight="900" lineheight="1" fontcolor="white">

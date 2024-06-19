@@ -25,3 +25,6 @@ Para o modal, será exigido um comportamento simples de abertura e fechamento, a
 
 ### 5. Desafio - Refine o comportamento do seu modal
 Não é obrigatório, mas, caso você consiga, com base no que foi mostrado nos conteúdos extras, aplique os comportamentos de: fechar ao clicar fora e fechar ao clicar na "Esc" em seu modal, de preferência trabalhando com a criação de hooks para cada um destes comportamentos. Você consegue!
+
+**Tecnologias**: React, HTML, Styled Components, Typescript
+**Link**: 
